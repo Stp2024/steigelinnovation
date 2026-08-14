@@ -178,7 +178,7 @@ export const About = () => {
           <motion.div className="grid-3" initial="hidden" whileInView="visible" viewport={viewport} variants={staggerContainer}>
             {[
               { name: 'PADMANABHA M', role: 'Founder', image: stp1 },
-              { name: 'Thanushree N', role: 'Consulting Manager', image: stp2 },
+              { name: 'Pratham Rao N', role: 'Consulting Manager', image: stp2 },
               { name: 'CHARAN D R', role: 'Technical Manager', image: stp3 },
             ].map((member, idx) => (
               <motion.div key={idx} variants={fadeUp}>
