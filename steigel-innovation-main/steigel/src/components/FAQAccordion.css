@@ -1,0 +1,128 @@
+.faq-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.faq-search-box {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.faq-search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.faq-search-input {
+  width: 100%;
+  padding: 1.1rem 1.1rem 1.1rem 3.25rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-search-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-md), var(--glow);
+}
+
+.accordion {
+  border: 1px solid var(--border);
+  background-color: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-fast);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-item:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.accordion-question {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding-right: 1.5rem;
+}
+
+.accordion-icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.accordion-header:hover .accordion-question,
+.accordion-header:hover .accordion-icon {
+  color: var(--accent);
+}
+
+.accordion-item.active .accordion-header {
+  border-bottom: 1px solid transparent;
+}
+
+.accordion-collapse {
+  overflow: hidden;
+}
+
+.accordion-body {
+  padding: 0 2rem 1.75rem;
+}
+
+.accordion-body p {
+  color: var(--text-muted);
+  font-size: 0.975rem;
+  line-height: 1.6;
+}
+
+.faq-no-results {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .accordion-header {
+    padding: 1.25rem 1.5rem;
+  }
+  .accordion-question {
+    font-size: 1rem;
+  }
+  .accordion-body {
+    padding: 0 1.5rem 1.25rem;
+  }
+}

@@ -1,0 +1,13 @@
+/* TEAM */
+Founder: Deepak Gowda (CEO)
+Consulting Manager: Sara Mehta
+Technical Manager: Vikas Sharma
+
+/* THANKS */
+Steigel Innovations Engineering Team
+
+/* SITE */
+Last update: 2026/07/10
+Standards: HTML5, CSS3, ES6+, WCAG 2.1
+Components: React.js, Vite, Framer Motion, Lucide Icons, React Helmet Async
+Software: Google Chrome, VS Code, Gemini AI
