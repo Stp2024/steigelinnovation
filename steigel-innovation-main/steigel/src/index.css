@@ -7,7 +7,7 @@
   /* Theme: Light (Sole default) */
   --bg-primary: #FFFFFF;
   --bg-secondary: #F4F5F7;
-  --bg-nav: #F7F4EC; /* Warm Ivory background */
+  --bg-nav: rgba(255, 255, 255, 0.88); /* Translucent white background for scrolled navbar */
   --hero-bg: linear-gradient(135deg, #FFFFFF 0%, #E8EBF2 50%, #FFFFFF 100%);
   --hero-title-gradient: linear-gradient(135deg, var(--text-primary) 30%, var(--accent) 100%);
   --hero-desc-color: var(--text-secondary);
