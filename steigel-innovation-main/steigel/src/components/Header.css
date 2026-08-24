@@ -149,19 +149,17 @@
   color: var(--text-secondary);
 }
 
-/* Scrolled Header Overrides for persistent contrast */
+/* Scrolled Header Overrides for contrast against Warm Ivory background */
 .header.scrolled .logo-link {
-  color: #FFFFFF;
+  color: #1B2A4A;
 }
 
 .header.scrolled .nav-menu-desktop .nav-item a {
-  color: #E8E9EC;
+  color: #1B2A4A;
 }
 
-
-
 .header.scrolled .mobile-nav-toggle {
-  color: #FFFFFF;
+  color: #1B2A4A;
 }
 
 .drawer-close-btn {
