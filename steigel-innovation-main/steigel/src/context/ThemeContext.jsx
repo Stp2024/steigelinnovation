@@ -1,34 +1,19 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
-    // Check local storage or defaults to dark
-    const savedTheme = localStorage.getItem('steigel-theme');
-    if (savedTheme) {
-      return savedTheme;
-    }
-    // Default to dark since Steigel is a luxury corporate brand
-    return 'dark';
-  });
-
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'light') {
-      root.setAttribute('data-theme', 'light');
-    } else {
-      root.setAttribute('data-theme', 'dark');
-    }
-    localStorage.setItem('steigel-theme', theme);
-  }, [theme]);
+    root.setAttribute('data-theme', 'light');
+  }, []);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+    // Dummy function since dark theme is removed
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: 'light', toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

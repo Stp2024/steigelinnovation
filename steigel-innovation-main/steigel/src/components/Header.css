@@ -93,31 +93,11 @@
   gap: 1.25rem;
 }
 
-.theme-toggle-btn {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-primary);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transition-fast);
-}
-
-.theme-toggle-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
 .mobile-nav-toggle {
   display: none;
   background: transparent;
   border: none;
-  color: #FFFFFF;
+  color: var(--text-primary);
   cursor: pointer;
   font-size: 1.75rem;
   align-items: center;
@@ -178,10 +158,7 @@
   color: #E8E9EC;
 }
 
-.header.scrolled .theme-toggle-btn {
-  color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.2);
-}
+
 
 .header.scrolled .mobile-nav-toggle {
   color: #FFFFFF;
