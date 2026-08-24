@@ -368,7 +368,7 @@ export const Home = () => {
           >
             {[
               { name: 'PADMANABHA M', role: 'Founder', image: stp1 },
-              { name: 'Pratham Rao N', role: 'Consulting Manager', image: stp2 },
+              { name: 'Thanushree N', role: 'Consulting Manager', image: stp2 },
               { name: 'CHARAN D R', role: 'Technical Manager', image: stp3 },
             ].map((member, idx) => (
               <motion.div key={idx} variants={fadeUp}>
@@ -468,7 +468,7 @@ export const Home = () => {
       </section>
 
       {/* ── CTA ── */}
-      <section className="section-padding" style={{ borderTop: '1px solid var(--border)', background: 'linear-gradient(180deg, var(--bg-primary) 0%, rgba(27, 42, 74, 0.2) 100%)' }}>
+      <section className="section-padding" style={{ borderTop: '1px solid var(--border)', background: 'var(--bg-primary)' }}>
         <div className="container">
           <motion.div
             className="glass-card"
