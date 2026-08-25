@@ -84,5 +84,3 @@ export const Youtube = ({ size = 24, ...props }) => (
     <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
   </svg>
 );
-
-export default { Twitter, LinkedIn, GitHub, Instagram, Youtube };

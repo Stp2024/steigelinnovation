@@ -45,7 +45,7 @@ export const Services = () => {
     'hasOfferCatalog': {
       '@type': 'OfferCatalog',
       'name': 'Technology & Marketing Offerings',
-      'itemListElement': servicesData.map((service, index) => ({
+      'itemListElement': servicesData.map((service) => ({
         '@type': 'Offer',
         'itemOffered': {
           '@type': 'Service',

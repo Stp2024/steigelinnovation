@@ -62,7 +62,7 @@ export const blogsData = [
     title: 'Building Digital Marketing Funnels That Actually Convert',
     category: 'Digital Marketing',
     excerpt: 'Ditch low-yielding PPC ads. Build a high-converting conversion funnel by combining persuasive copywriting with premium visual storytelling.',
-    content: `<p>Paying for digital traffic is only half the battle. If your corporate landing page lacks professional structure, clear hierarchy, or responsive layouts, visitors will bounce before taking action. Let\'s explore how design and content synchronize to generate leads.</p>
+    content: `<p>Paying for digital traffic is only half the battle. If your corporate landing page lacks professional structure, clear hierarchy, or responsive layouts, visitors will bounce before taking action. Let's explore how design and content synchronize to generate leads.</p>
     <h3>1. Crafting a High-Impact Hero Above the Fold</h3>
     <p>A user takes less than 3 seconds to judge your website. Your headline must explain your exact value proposition with a bold, readable hierarchy. Provide two primary buttons: a high-intent Call To Action (e.g., Get Started) and an informational explore link.</p>
     <h3>2. Incorporating Social Proof & Authority Metrics</h3>

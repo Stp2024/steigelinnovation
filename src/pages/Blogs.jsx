@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Calendar, User, BookOpen, ChevronRight } from 'lucide-react';
+import { Search, Calendar, BookOpen, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import { blogsData } from '../data/blogsData';
 import './Blogs.css';

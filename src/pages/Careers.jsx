@@ -26,7 +26,7 @@ export const Careers = () => {
     }
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     // Simulate API submission
     setSubmitted(true);
     reset();

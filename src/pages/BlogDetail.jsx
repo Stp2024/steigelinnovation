@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Calendar, User, BookOpen, ArrowLeft, Tag } from 'lucide-react';
+import { Calendar, BookOpen, ArrowLeft, Tag } from 'lucide-react';
 import SEO from '../components/SEO';
 import { blogsData } from '../data/blogsData';
 

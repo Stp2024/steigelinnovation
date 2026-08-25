@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
 
 export const Contact = () => {

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { LinkedIn as Linkedin, GitHub as Github, Instagram, Youtube } from './SocialIcons';
 import logo from '../assets/logo.webp';
-import { fadeUp, staggerContainer, viewport } from '../utils/animations';
+import { fadeUp, staggerContainer } from '../utils/animations';
 import './Footer.css';
 
 const socialLinks = [
