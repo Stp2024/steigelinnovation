@@ -438,6 +438,7 @@ export const MentorDashboard = () => {
                     <th>Attendance Score</th>
                     <th>Task progress</th>
                     <th>Training Rating</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -450,7 +451,16 @@ export const MentorDashboard = () => {
                         <td>{p ? p.name : 'Not allocated'}</td>
                         <td>{i.attendanceScore}%</td>
                         <td><ProgressBar progress={i.taskProgress} label={null} /></td>
-                        <td><ProgressBar progress={i.trainingProgress} label={null} color="#A0A8B1" /></td>
+                        <td><ProgressBar progress={i.trainingProgress} label={null} color="#B8923D" /></td>
+                        <td>
+                          <button
+                            onClick={() => setActiveTab('Messaging Room')}
+                            className="dash-btn dash-btn-primary"
+                            style={{ padding: '0.3rem 0.75rem', fontSize: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
+                          >
+                            <MessageCircle size={13} /> Chat
+                          </button>
+                        </td>
                       </tr>
                     );
                   })}

@@ -224,8 +224,19 @@ export const InternDashboard = () => {
 
             <div className="dash-card">
               <span className="kpi-label">Assigned Mentor</span>
-              <div style={{ fontSize: '1rem', fontWeight: 700, marginTop: '0.25rem' }}>
-                {mentorObj ? mentorObj.name : 'Not assigned'}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.4rem' }}>
+                <span style={{ fontSize: '1rem', fontWeight: 700 }}>
+                  {mentorObj ? mentorObj.name : 'Not assigned'}
+                </span>
+                {mentorObj && (
+                  <button
+                    onClick={() => setActiveTab('Chat')}
+                    className="dash-btn dash-btn-primary"
+                    style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+                  >
+                    <MessageCircle size={14} /> Chat with Mentor
+                  </button>
+                )}
               </div>
             </div>
           </div>
