@@ -106,20 +106,36 @@ export const Services = () => {
             viewport={{ once: true }}
             variants={staggerContainer}
           >
-            {servicesData.map((service) => {
+            {servicesData.map((service, index) => {
               const ServiceIcon = iconMap[service.iconName] || Code;
               return (
                 <motion.div 
                   key={service.id} 
                   className="glass-card" 
                   variants={fadeUp}
-                  style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+                  style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}
                 >
+                  {/* Floating card index number */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '2.5rem',
+                    right: '2.5rem',
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '2.5rem',
+                    fontWeight: '800',
+                    color: 'var(--accent)',
+                    opacity: 0.18,
+                    pointerEvents: 'none',
+                    letterSpacing: '-0.02em'
+                  }}>
+                    {`0${index + 1}`}
+                  </div>
+
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '1.5rem' }}>
                     <div style={{
                       width: '48px',
                       height: '48px',
-                      backgroundColor: 'rgba(212, 175, 106, 0.1)',
+                      backgroundColor: 'rgba(184, 146, 61, 0.08)',
                       borderRadius: '12px',
                       display: 'flex',
                       alignItems: 'center',
@@ -129,7 +145,7 @@ export const Services = () => {
                     }}>
                       <ServiceIcon size={22} />
                     </div>
-                    <h3 style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)' }}>{service.title}</h3>
+                    <h3 style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)', margin: 0 }}>{service.title}</h3>
                   </div>
 
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
@@ -137,9 +153,9 @@ export const Services = () => {
                   </p>
 
                   {/* Bullet features */}
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2.5rem', flexGrow: 1 }}>
-                    {service.features.map((feature, index) => (
-                      <li key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2.5rem', flexGrow: 1, padding: 0 }}>
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
                         <CheckCircle size={16} color="var(--accent)" style={{ flexShrink: 0 }} />
                         <span>{feature}</span>
                       </li>

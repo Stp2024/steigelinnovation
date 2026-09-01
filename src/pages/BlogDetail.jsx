@@ -159,29 +159,47 @@ export const BlogDetail = () => {
       <style>{`
         .blog-body-content h3 {
           font-family: var(--font-heading);
-          font-size: 1.6rem;
-          margin: 2.5rem 0 1rem;
+          font-size: 1.8rem;
+          font-weight: 700;
+          margin: 3rem 0 1.25rem;
           color: var(--text-primary);
+          letter-spacing: -0.02em;
         }
         .blog-body-content p {
-          margin-bottom: 1.5rem;
+          margin-bottom: 1.75rem;
           color: var(--text-secondary);
+          line-height: 1.8;
         }
         .blog-body-content pre {
           background-color: var(--bg-secondary);
           border: 1px solid var(--border);
-          border-radius: 8px;
-          padding: 1.25rem;
+          border-radius: 6px;
+          padding: 1.5rem;
           overflow-x: auto;
-          margin: 1.5rem 0;
+          margin: 2rem 0;
         }
         .blog-body-content code {
-          font-family: monospace;
+          font-family: var(--font-sans);
+          font-size: 0.9rem;
+          font-weight: 600;
           color: var(--accent);
-          font-size: 0.95rem;
+          background-color: rgba(184, 146, 61, 0.05);
+          padding: 0.2rem 0.4rem;
+          border-radius: 4px;
+        }
+        .blog-body-content pre code {
+          background-color: transparent;
+          padding: 0;
+          border-radius: 0;
+          font-weight: 400;
+          color: var(--text-primary);
+        }
+        .back-btn-hover {
+          transition: all var(--transition-fast) !important;
         }
         .back-btn-hover:hover {
           color: var(--accent) !important;
+          transform: translateX(-4px);
         }
       `}</style>
     </>

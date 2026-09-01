@@ -21,6 +21,16 @@ const TermsConditions = React.lazy(() => import('./pages/TermsConditions'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const Maintenance = React.lazy(() => import('./pages/Maintenance'));
 
+// New Protected Submodule Views
+const AdminLogin = React.lazy(() => import('./pages/AdminLogin'));
+const MentorLogin = React.lazy(() => import('./pages/MentorLogin'));
+const InternLogin = React.lazy(() => import('./pages/InternLogin'));
+const NdaAgreement = React.lazy(() => import('./pages/NdaAgreement'));
+const VerifyCertificate = React.lazy(() => import('./pages/VerifyCertificate'));
+const AdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
+const MentorDashboard = React.lazy(() => import('./pages/MentorDashboard'));
+const InternDashboard = React.lazy(() => import('./pages/InternDashboard'));
+
 // Premium loading screen with spinner
 const LoadingScreen = () => (
   <div style={{
@@ -67,6 +77,7 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
+        {/* Public Website Routes */}
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
@@ -77,9 +88,61 @@ function AnimatedRoutes() {
         <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         <Route path="/terms-and-conditions" element={<PageTransition><TermsConditions /></PageTransition>} />
         <Route path="/maintenance" element={<PageTransition><Maintenance /></PageTransition>} />
+
+        {/* Authentication & Protected Dashboard Routes */}
+        <Route path="/admin-login" element={<PageTransition><AdminLogin /></PageTransition>} />
+        <Route path="/mentor-login" element={<PageTransition><MentorLogin /></PageTransition>} />
+        <Route path="/user-login" element={<PageTransition><InternLogin /></PageTransition>} />
+        <Route path="/intern-login" element={<PageTransition><InternLogin /></PageTransition>} />
+        
+        <Route path="/nda-agreement" element={<PageTransition><NdaAgreement /></PageTransition>} />
+        <Route path="/verify/:token" element={<PageTransition><VerifyCertificate /></PageTransition>} />
+        
+        <Route path="/admin-dashboard" element={<PageTransition><AdminDashboard /></PageTransition>} />
+        <Route path="/mentor-dashboard" element={<PageTransition><MentorDashboard /></PageTransition>} />
+        <Route path="/user-dashboard" element={<PageTransition><InternDashboard /></PageTransition>} />
+        <Route path="/intern-dashboard" element={<PageTransition><InternDashboard /></PageTransition>} />
+
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
+  );
+}
+
+// Helper container to inspect paths and hide Header/Footer on Protected routes
+function AppContent() {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const hideLayout =
+    pathname.startsWith('/admin-') ||
+    pathname.startsWith('/mentor-') ||
+    pathname.startsWith('/user-') ||
+    pathname.startsWith('/intern-') ||
+    pathname === '/nda-agreement' ||
+    pathname.startsWith('/verify/');
+
+  if (hideLayout) {
+    return (
+      <main id="main-content" style={{ minHeight: '100vh' }}>
+        <Suspense fallback={<LoadingScreen />}>
+          <AnimatedRoutes />
+        </Suspense>
+      </main>
+    );
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Header />
+      <main id="main-content" style={{ flexGrow: 1 }}>
+        <Suspense fallback={<LoadingScreen />}>
+          <AnimatedRoutes />
+        </Suspense>
+      </main>
+      <FloatingWhatsApp />
+      <Footer />
+    </div>
   );
 }
 
@@ -90,16 +153,7 @@ function App() {
       <CursorGlow />
       {/* Cursor glow DOM element — tracked by CursorGlow */}
       <div id="cursor-glow" aria-hidden="true" />
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Header />
-        <main id="main-content" style={{ flexGrow: 1 }}>
-          <Suspense fallback={<LoadingScreen />}>
-            <AnimatedRoutes />
-          </Suspense>
-        </main>
-        <FloatingWhatsApp />
-        <Footer />
-      </div>
+      <AppContent />
     </Router>
   );
 }

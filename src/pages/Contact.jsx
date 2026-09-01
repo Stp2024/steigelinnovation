@@ -118,11 +118,11 @@ export const Contact = () => {
 
             {/* Google Map Embed */}
             <div style={{
-              borderRadius: '16px',
+              borderRadius: '12px',
               border: '1px solid var(--border)',
               overflow: 'hidden',
               marginTop: '1.5rem',
-              boxShadow: 'var(--shadow-md)',
+              boxShadow: 'var(--shadow-sm)',
               height: '300px'
             }}>
               <iframe

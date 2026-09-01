@@ -190,49 +190,42 @@ export const Home = () => {
           </motion.div>
 
           <motion.div 
-            className="grid-3"
+            className="services-list-container"
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
             variants={staggerContainer}
           >
-            {servicesData.slice(0, 6).map((service) => {
+            {servicesData.slice(0, 6).map((service, index) => {
               const ServiceIcon = iconMap[service.iconName] || Code;
+              const numStr = `0${index + 1}`;
               return (
                 <motion.div 
                   key={service.id} 
-                  className="glass-card" 
+                  className="service-list-row"
                   variants={fadeUp}
-                  whileHover={cardHover}
-                  style={{ cursor: 'default' }}
                 >
-                  <motion.div
-                    style={{
-                      width: '50px', height: '50px',
-                      backgroundColor: 'rgba(212, 175, 106, 0.1)',
-                      borderRadius: '12px',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: 'var(--accent)', marginBottom: '1.5rem'
-                    }}
-                    whileHover={{ rotate: 8, scale: 1.1, backgroundColor: 'rgba(212, 175, 106, 0.18)' }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ServiceIcon size={24} />
-                  </motion.div>
-                  <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem' }}>{service.title}</h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+                  <div className="service-number">{numStr}</div>
+                  
+                  <div className="service-title-col">
+                    <div className="service-icon-wrapper">
+                      <ServiceIcon size={20} />
+                    </div>
+                    <h3 className="service-title-text">{service.title}</h3>
+                  </div>
+                  
+                  <p className="service-desc-text">
                     {service.shortDesc}
                   </p>
-                  <Link to="/services" className="blog-preview-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-                    Explore Features
-                    <motion.span
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.2 }}
-                      style={{ display: 'flex', alignItems: 'center' }}
-                    >
-                      <ArrowRight size={16} />
-                    </motion.span>
-                  </Link>
+                  
+                  <div className="service-link-col">
+                    <Link to="/services" className="service-action-link">
+                      Explore Features
+                      <span className="arrow-wrapper">
+                        <ArrowRight size={16} />
+                      </span>
+                    </Link>
+                  </div>
                 </motion.div>
               );
             })}
