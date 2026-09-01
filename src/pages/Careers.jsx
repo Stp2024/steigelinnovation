@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   GraduationCap, LogIn, LogOut, ArrowRight, Sparkles, CheckCircle, Code,
-  Cpu, Database, Cloud, Award, Calendar, FileText, Send, User
+  Cpu, Database, Cloud, FileText, Send
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { getSession, setSession, clearSession, authenticateUser, getSystemData } from '../lib/systemStore';
