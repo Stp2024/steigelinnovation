@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, ShieldCheck, Heart, Sparkles, Award } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getAboutPageSchema } from '../utils/seoSchemas';
 import TeamCard from '../components/TeamCard';
 import stp1 from '../assets/stp1.webp';
 import stp2 from '../assets/stp2.webp';
@@ -15,23 +16,17 @@ const cardHover = {
 };
 
 export const About = () => {
-  const aboutSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'AboutPage',
-    'name': 'About Steigel Innovations',
-    'description': 'Understand our story, core vision, mission, corporate motto, and meet our leadership team.',
-    'publisher': {
-      '@type': 'Organization',
-      'name': 'Steigel Innovations',
-      'logo': { '@type': 'ImageObject', 'url': 'https://steigel.com/assets/logo.png' }
-    }
-  };
+  const aboutSchema = getAboutPageSchema({
+    name: 'Our Story & Core Values | Steigel Innovations',
+    description: 'Learn about Steigel Innovations, our core mission, vision, corporate motto, and meet the leadership team driving our digital solutions.'
+  });
 
   return (
     <>
       <SEO 
         title="Our Story & Core Values"
         description="Learn about Steigel Innovations, our core mission, vision, corporate motto, and meet the leadership team driving our digital solutions."
+        canonicalUrl="https://steigel.com/about"
         schemaMarkup={aboutSchema}
       />
 

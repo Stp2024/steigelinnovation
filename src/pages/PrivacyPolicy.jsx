@@ -1,19 +1,20 @@
 import React from 'react';
 import SEO from '../components/SEO';
+import { getWebPageSchema } from '../utils/seoSchemas';
 
 export const PrivacyPolicy = () => {
-  const policySchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    'name': 'Privacy Policy | Steigel Innovations',
-    'description': 'Read the official privacy policy and data protection guidelines of Steigel Innovations.'
-  };
+  const policySchema = getWebPageSchema({
+    path: '/privacy-policy',
+    name: 'Privacy Policy | Steigel Innovations',
+    description: 'Review the corporate privacy policy and data protection framework of Steigel Innovations.'
+  });
 
   return (
     <>
       <SEO 
         title="Privacy Policy"
         description="Learn how Steigel Innovations handles and protects your corporate data, cookies, project files, and contact queries."
+        canonicalUrl="https://steigel.com/privacy-policy"
         schemaMarkup={policySchema}
       />
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, BookOpen, ArrowLeft, Tag } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getBlogPostingSchema } from '../utils/seoSchemas';
 import { blogsData } from '../data/blogsData';
 
 export const BlogDetail = () => {
@@ -24,38 +25,19 @@ export const BlogDetail = () => {
     );
   }
 
-  // Structured schemas
-  const blogPostingSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    'headline': post.title,
-    'description': post.excerpt,
-    'datePublished': post.date,
-    'author': {
-      '@type': 'Person',
-      'name': post.author.split(',')[0],
-      'jobTitle': post.author.split(',')[1] || 'Writer'
-    },
-    'publisher': {
-      '@type': 'Organization',
-      'name': 'Steigel Innovations',
-      'logo': {
-        '@type': 'ImageObject',
-        'url': 'https://steigel.com/assets/logo.png'
-      }
-    },
-    'mainEntityOfPage': {
-      '@type': 'WebPage',
-      '@id': `${window.location.origin}/blogs/${post.id}`
-    }
-  };
+  const blogPostingSchema = getBlogPostingSchema({
+    id: post.id,
+    title: post.title,
+    excerpt: post.excerpt,
+    date: post.date
+  });
 
   return (
     <>
       <SEO 
         title={post.title}
         description={post.excerpt}
-        canonicalUrl={`${window.location.origin}/blogs/${post.id}`}
+        canonicalUrl={`https://steigel.com/blogs/${post.id}`}
         ogType="article"
         schemaMarkup={blogPostingSchema}
       />

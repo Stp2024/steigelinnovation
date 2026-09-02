@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Calendar, BookOpen, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getWebPageSchema } from '../utils/seoSchemas';
 import { blogsData } from '../data/blogsData';
 import './Blogs.css';
 
@@ -20,32 +21,18 @@ export const Blogs = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const blogsSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Blog',
-    'name': 'Steigel Innovations Insights',
-    'description': 'Articles and strategy guides on React performance, technical SEO structure, UI/UX aesthetics, and growth marketing.',
-    'publisher': {
-      '@type': 'Organization',
-      'name': 'Steigel Innovations'
-    },
-    'blogPost': filteredBlogs.map((post) => ({
-      '@type': 'BlogPosting',
-      'headline': post.title,
-      'description': post.excerpt,
-      'datePublished': post.date,
-      'author': {
-        '@type': 'Person',
-        'name': post.author.split(',')[0]
-      }
-    }))
-  };
+  const blogsSchema = getWebPageSchema({
+    path: '/blogs',
+    name: 'Corporate Blogs & Technology Insights | Steigel Innovations',
+    description: 'Read articles from Steigel Innovations on React compiler setups, Technical SEO architectures, luxury glassmorphism styles, and conversion marketing.'
+  });
 
   return (
     <>
       <SEO 
         title="Corporate Blogs & Technology Insights"
         description="Read articles from Steigel Innovations on React compiler setups, Technical SEO architectures, luxury glassmorphism styles, and conversion marketing."
+        canonicalUrl="https://steigel.com/blogs"
         schemaMarkup={blogsSchema}
       />
 

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getContactPageSchema } from '../utils/seoSchemas';
 
 export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -19,24 +20,17 @@ export const Contact = () => {
     }, 8000);
   };
 
-  const contactSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    'name': 'Contact Steigel Innovations',
-    'description': 'Submit your software requests, contact our corporate office in Bangalore, or verify working hours.',
-    'mainEntity': {
-      '@type': 'LocalBusiness',
-      'name': 'Steigel Innovations',
-      'email': 'STPCA2024@GMAIL.COM',
-      'telephone': '+919449446793'
-    }
-  };
+  const contactSchema = getContactPageSchema({
+    name: 'Contact Us & Request Consultation | Steigel Innovations',
+    description: 'Get in touch with Steigel Innovations. Reach our corporate office, email our directors, or submit your software project details.'
+  });
 
   return (
     <>
       <SEO 
         title="Contact Us & Request Consultation"
-        description="Get in touch with Steigel Innovations. Reach our Bangalore corporate office, email our directors, or submit your software project details."
+        description="Get in touch with Steigel Innovations. Reach our corporate office, email our directors, or submit your software project details."
+        canonicalUrl="https://steigel.com/contact"
         schemaMarkup={contactSchema}
       />
 

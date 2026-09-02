@@ -219,7 +219,7 @@ export const InternDashboard = () => {
 
             <div className="dash-card">
               <span className="kpi-label">Attendance Score</span>
-              <div className="kpi-value">{internObj.attendanceScore || 100}%</div>
+              <div className="kpi-value">{internObj.attendanceScore || 0}%</div>
             </div>
 
             <div className="dash-card">
@@ -440,10 +440,10 @@ export const InternDashboard = () => {
           <span style={{ fontWeight: 700 }}>Internship Training Curriculum Module</span>
           
           <div className="dash-card">
-            <ProgressBar progress={100} label="Module 1: HTML5 & CSS3 Editorial Frameworks" color="#B8923D" />
-            <ProgressBar progress={90} label="Module 2: Version Control (Git & GitHub)" color="#B8923D" />
-            <ProgressBar progress={70} label="Module 3: React Router DOM & Layout Guards" color="#B8923D" />
-            <ProgressBar progress={internObj.trainingProgress || 40} label="Module 4: Enterprise Project Handover" color="#B8923D" />
+            <ProgressBar progress={internObj.trainingProgress || 0} label="Module 1: HTML5 & CSS3 Editorial Frameworks" color="#B8923D" />
+            <ProgressBar progress={internObj.trainingProgress || 0} label="Module 2: Version Control (Git & GitHub)" color="#B8923D" />
+            <ProgressBar progress={internObj.trainingProgress || 0} label="Module 3: React Router DOM & Layout Guards" color="#B8923D" />
+            <ProgressBar progress={internObj.trainingProgress || 0} label="Module 4: Enterprise Project Handover" color="#B8923D" />
           </div>
         </div>
       )}

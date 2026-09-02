@@ -130,12 +130,12 @@ export const MentorDashboard = () => {
   // Gradebook / Score Grid Action
   const startEditScores = (intern) => {
     // Find current scoring evaluations if exists
-    const current = systemData.evaluations.find(e => e.internId === intern.id) || { tech: 80, att: 80, assign: 80 };
+    const current = systemData.evaluations.find(e => e.internId === intern.id) || { tech: 0, att: 0, assign: 0 };
     setEditingScores({
       internId: intern.id,
-      tech: current.tech || 80,
-      att: current.att || 80,
-      assign: current.assign || 80
+      tech: current.tech || 0,
+      att: current.att || 0,
+      assign: current.assign || 0
     });
   };
 
@@ -341,16 +341,23 @@ export const MentorDashboard = () => {
   const radarData = (() => {
     if (!selectedInternObj) return null;
     
-    const internEval = systemData.evaluations.find(e => e.internId === selectedInternId) || { tech: 80, att: 80, assign: 80 };
+    const internEval = systemData.evaluations.find(e => e.internId === selectedInternId) || { tech: 0, att: 0, assign: 0 };
     const taskPct = selectedInternObj.taskProgress || 0;
     const trainingPct = selectedInternObj.trainingProgress || 0;
 
     // Calculate averages of batch
     const allInternsInBatch = systemData.interns.filter(i => i.batch === selectedInternObj.batch);
-    const batchTech = 80; // Default mockup batch averages
+    const batchTech = Math.round(allInternsInBatch.reduce((acc, curr) => {
+      const ev = systemData.evaluations.find(e => e.internId === curr.id);
+      return acc + (ev ? ev.tech : 0);
+    }, 0) / (allInternsInBatch.length || 1));
     const batchAtt = Math.round(allInternsInBatch.reduce((acc, curr) => acc + (curr.attendanceScore || 0), 0) / (allInternsInBatch.length || 1));
     const batchTask = Math.round(allInternsInBatch.reduce((acc, curr) => acc + (curr.taskProgress || 0), 0) / (allInternsInBatch.length || 1));
     const batchTrain = Math.round(allInternsInBatch.reduce((acc, curr) => acc + (curr.trainingProgress || 0), 0) / (allInternsInBatch.length || 1));
+    const batchAssign = Math.round(allInternsInBatch.reduce((acc, curr) => {
+      const ev = systemData.evaluations.find(e => e.internId === curr.id);
+      return acc + (ev ? ev.assign : 0);
+    }, 0) / (allInternsInBatch.length || 1));
 
     return {
       labels: ['Technical Skill', 'Attendance', 'Assignment Quality', 'Task Completion', 'Training Progress'],
@@ -358,9 +365,9 @@ export const MentorDashboard = () => {
         {
           label: selectedInternObj.name,
           data: [
-            internEval.tech || 80,
-            selectedInternObj.attendanceScore || 80,
-            internEval.assign || 80,
+            internEval.tech || 0,
+            selectedInternObj.attendanceScore || 0,
+            internEval.assign || 0,
             taskPct,
             trainingPct
           ],
@@ -370,7 +377,7 @@ export const MentorDashboard = () => {
         },
         {
           label: 'Batch Average',
-          data: [batchTech, batchAtt, 80, batchTask, batchTrain],
+          data: [batchTech, batchAtt, batchAssign, batchTask, batchTrain],
           backgroundColor: 'rgba(160, 168, 177, 0.1)',
           borderColor: '#A0A8B1',
           borderWidth: 1,

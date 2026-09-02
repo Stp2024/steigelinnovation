@@ -9,6 +9,7 @@ import {
   ArrowRight, CheckCircle, Mail, ExternalLink 
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getOrganizationSchema, getWebSiteSchema, getWebPageSchema } from '../utils/seoSchemas';
 import TeamCard from '../components/TeamCard';
 import FAQAccordion from '../components/FAQAccordion';
 import { servicesData } from '../data/servicesData';
@@ -29,44 +30,23 @@ const cardHover = {
 };
 
 export const Home = () => {
-  // Structured schemas
-  const homeSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    'name': 'Steigel Innovations',
-    'url': window.location.origin,
-    'description': 'Premium technology startup specializing in Web Development, UI/UX Design, SEO, and custom software.',
-    'potentialAction': {
-      '@type': 'SearchAction',
-      'target': `${window.location.origin}/blogs?q={search_term_string}`,
-      'query-input': 'required name=search_term_string'
-    }
-  };
-
-  const businessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    'name': 'Steigel Innovations',
-    'image': 'https://steigel.com/assets/logo.png',
-    'email': 'STPCA2024@GMAIL.COM',
-    'telephone': '+919449446793',
-    'address': {
-      '@type': 'PostalAddress',
-      'streetAddress': 'XG76+2MW, NH 206, Sagar Road, Virupina Koppa',
-      'addressLocality': 'Shivamogga',
-      'addressRegion': 'Karnataka',
-      'postalCode': '577204',
-      'addressCountry': 'IN'
-    },
-    'priceRange': '$$$'
-  };
+  const homeSchemas = [
+    getOrganizationSchema(),
+    getWebSiteSchema(),
+    getWebPageSchema({
+      path: '',
+      name: 'Engineering Next-Gen Digital Products | Steigel Innovations',
+      description: 'Steigel Innovations is a premium technology startup engineering futuristic web development, UI/UX designs, and technical SEO operations for worldwide enterprises.'
+    })
+  ];
 
   return (
     <>
       <SEO 
         title="Engineering Next-Gen Digital Products"
         description="Steigel Innovations is a premium technology startup engineering futuristic web development, UI/UX designs, and technical SEO operations for worldwide enterprises."
-        schemaMarkup={[homeSchema, businessSchema]}
+        canonicalUrl="https://steigel.com/"
+        schemaMarkup={homeSchemas}
       />
 
       {/* ── Hero Section ── */}

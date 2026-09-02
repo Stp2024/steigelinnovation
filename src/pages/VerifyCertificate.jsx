@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CheckCircle2, AlertTriangle, ArrowLeft } from 'lucide-react';
 import { getSystemData } from '../lib/systemStore';
+import SEO from '../components/SEO';
+import { getWebPageSchema } from '../utils/seoSchemas';
 import logo from '../assets/logo.webp';
 
 export const VerifyCertificate = () => {
@@ -11,8 +13,20 @@ export const VerifyCertificate = () => {
   // Find certificate by token
   const certificate = data.certificates.find(c => c.token === token);
 
+  const certSchema = getWebPageSchema({
+    path: '/verify',
+    name: 'Verify Certificate Credential | Steigel Innovations',
+    description: 'Verify the authenticity of Steigel Innovations completion credentials.'
+  });
+
   return (
     <div className="dashboard-theme" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
+      <SEO 
+        title="Verify Certificate Credential"
+        description="Verify the authenticity of Steigel Innovations completion credentials."
+        canonicalUrl="https://steigel.com/verify"
+        schemaMarkup={certSchema}
+      />
       {/* Mini public header for verification */}
       <header style={{ padding: '1rem 2rem', borderBottom: '1px solid var(--border-color)', backgroundColor: '#FFFFFF', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'var(--text-primary)', fontWeight: 600, fontSize: '0.9rem' }}>

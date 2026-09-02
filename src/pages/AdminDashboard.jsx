@@ -579,10 +579,10 @@ export const AdminDashboard = () => {
               <span style={{ fontWeight: 700 }}>Intern Growth Trend</span>
               <LineChart
                 data={{
-                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
                   datasets: [{
                     label: 'Cohort Size',
-                    data: [5, 12, 18, 25, 24, 30, 35, systemData.users.filter(u => u.role === 'intern').length],
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, systemData.users.filter(u => u.role === 'intern').length],
                     borderColor: '#B8923D',
                     backgroundColor: 'rgba(184, 146, 61, 0.08)',
                     fill: true

@@ -1,19 +1,20 @@
 import React from 'react';
 import SEO from '../components/SEO';
+import { getWebPageSchema } from '../utils/seoSchemas';
 
 export const TermsConditions = () => {
-  const termsSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    'name': 'Terms and Conditions | Steigel Innovations',
-    'description': 'Read the official terms and conditions governing the technology and design services of Steigel Innovations.'
-  };
+  const termsSchema = getWebPageSchema({
+    path: '/terms-and-conditions',
+    name: 'Terms & Conditions | Steigel Innovations',
+    description: 'Review the master service terms, legal governance, and usage conditions of Steigel Innovations.'
+  });
 
   return (
     <>
       <SEO 
         title="Terms & Conditions"
         description="Review the corporate terms and conditions of service for web engineering, design retainer billing, and client copyright deliverables at Steigel Innovations."
+        canonicalUrl="https://steigel.com/terms-and-conditions"
         schemaMarkup={termsSchema}
       />
 

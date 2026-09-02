@@ -6,6 +6,7 @@ import {
   CheckCircle, ArrowRight 
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getWebPageSchema } from '../utils/seoSchemas';
 import { servicesData } from '../data/servicesData';
 
 // Icon mapper helper
@@ -34,33 +35,18 @@ export const Services = () => {
     }
   };
 
-  // JSON-LD Service List Schema
-  const servicesSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    'provider': {
-      '@type': 'LocalBusiness',
-      'name': 'Steigel Innovations'
-    },
-    'hasOfferCatalog': {
-      '@type': 'OfferCatalog',
-      'name': 'Technology & Marketing Offerings',
-      'itemListElement': servicesData.map((service) => ({
-        '@type': 'Offer',
-        'itemOffered': {
-          '@type': 'Service',
-          'name': service.title,
-          'description': service.shortDesc
-        }
-      }))
-    }
-  };
+  const servicesSchema = getWebPageSchema({
+    path: '/services',
+    name: 'Our Services & Capability Verticals | Steigel Innovations',
+    description: 'Explore the technological capabilities of Steigel Innovations: Full Stack Web Development, UI/UX Product Design, Technical SEO, SaaS solutions, and hosting support.'
+  });
 
   return (
     <>
       <SEO 
         title="Our Services & Capability Verticals"
         description="Explore the technological capabilities of Steigel Innovations: Full Stack Web Development, UI/UX Product Design, Technical SEO, SaaS solutions, and hosting support."
+        canonicalUrl="https://steigel.com/services"
         schemaMarkup={servicesSchema}
       />
 

@@ -50,9 +50,17 @@ export const SEO = ({
 
       {/* Structured Schema Markup */}
       {schemaMarkup && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaMarkup)}
-        </script>
+        Array.isArray(schemaMarkup) ? (
+          schemaMarkup.filter(Boolean).map((s, i) => (
+            <script key={i} type="application/ld+json">
+              {JSON.stringify(s)}
+            </script>
+          ))
+        ) : (
+          <script type="application/ld+json">
+            {JSON.stringify(schemaMarkup)}
+          </script>
+        )
       )}
     </Helmet>
   );

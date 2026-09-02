@@ -7,6 +7,7 @@ import {
   Cpu, Database, Cloud, FileText, Send
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getWebPageSchema } from '../utils/seoSchemas';
 import { getSession, setSession, clearSession, authenticateUser, getSystemData } from '../lib/systemStore';
 
 export const Careers = () => {
@@ -65,12 +66,11 @@ export const Careers = () => {
     }, 8000);
   };
 
-  const careersSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'AboutPage',
-    'name': 'Steigel Innovations Internship Program',
-    'description': 'Apply for the Steigel Internship & Associate Program. Learn Web Engineering, AI Systems, Data Engineering, and Cloud Infrastructure with direct mentorship.'
-  };
+  const careersSchema = getWebPageSchema({
+    path: '/careers',
+    name: 'Careers & Internship Opportunities | Steigel Innovations',
+    description: 'Apply for the Steigel Internship & Associate Program. Learn Web Engineering, AI Systems, Data Engineering, and Cloud Infrastructure with direct mentorship.'
+  });
 
   const internshipTracks = [
     {
@@ -100,6 +100,7 @@ export const Careers = () => {
       <SEO 
         title="Internship & Associate Program"
         description="Join the Steigel Innovations Internship Program. Gain hands-on project experience, faculty mentorship, and verifiable credentials."
+        canonicalUrl="https://steigel.com/careers"
         schemaMarkup={careersSchema}
       />
 
